@@ -4,15 +4,13 @@
 
 ![alt text](image.png)
 
-O **NEW ALGORITHM RAG** é um sistema inovador de Retrieval-Augmented Generation (RAG) que revoluciona a forma como informações são processadas e recuperadas em bancos de dados vetoriais. Este algoritmo utiliza uma abordagem multi-dimensional para criar embeddings semânticos mais eficazes e precisos.
+Desenvolvi um novo algoritmo de RAG, o **NEW ALGORITHM RAG**. Nas últimas semanas estive pensando muito em como aperfeiçoar a técnica de RAG.
 
-### 🎯 Objetivo
+Tenho me dedicado ao desenvolvimento de um novo algoritmo de RAG (Retrieval-Augmented Generation) com o objetivo de melhorar a forma como relacionamos informações. Tive como objetivo desenvolver uma solução de forma inteligente.
 
-Para bancos de dados relacionais com capacidade de pesquisa vetorial, este algoritmo permite que a **informação A** seja relacionada à **informação B** quando existe algum tipo de relação de significado entre elas, expandindo significativamente a capacidade de recuperação de informações relevantes.
+Decidi pesquisar como uma informação A se relaciona com outra informação B. A informação A pode ser relacionada à informação B quando existe algum tipo de relação de significado entre elas, ou seja, quando elas compartilham um contexto, conceito, uso ou associação no mundo real ou em um determinado domínio.
 
-## 🔬 Metodologia Inovadora
-
-O algoritmo processa cada chunk de texto através de **três dimensões semânticas distintas**:
+O que define se duas informações são semanticamente correlacionadas envolve principalmente três fatores:
 
 ### 1. 🎭 Similaridade Semântica
 **Objetivo:** Encontrar itens com significado muito parecido
@@ -141,11 +139,9 @@ brew install python@3.12 git
 
 ```bash
 # Instalar pgAdmin 4
-# Ubuntu/Debian
-sudo apt install pgadmin4
+acessar o link e instalar o console pgadmin4:
 
-# macOS
-brew install --cask pgadmin4
+https://www.pgadmin.org/download/
 ```
 
 **Configurar Conexão Azure:**
@@ -186,16 +182,16 @@ touch .env
 Conteúdo do arquivo `.env`:
 ```bash
 # Database Configuration
-DATABASE_URL=postgresql://username:password@server.postgres.database.azure.com:5432/rag_database
-POSTGRES_HOST=server.postgres.database.azure.com
-POSTGRES_PORT=5432
-POSTGRES_DB=rag_database
-POSTGRES_USER=username
-POSTGRES_PASSWORD=password
+DATABASE_URL=˜postgresql://username:password@server.postgres.database.azure.com:5432/rag_database˜
+POSTGRES_HOST=˜server.postgres.database.azure.com˜
+POSTGRES_PORT=˜5432Z
+POSTGRES_DB=˜postgres˜
+POSTGRES_USER=˜username˜
+POSTGRES_PASSWORD=˜password˜
 
 # Azure OpenAI Configuration
-AZURE_OPENAI_API_KEY=your_azure_openai_key
-AZURE_OPENAI_ENDPOINT=your_azure_openai_endpoint
+AZURE_OPENAI_API_KEY=˜your_azure_openai_key˜
+AZURE_OPENAI_ENDPOINT=˜your_azure_openai_endpoint˜
 ```
 
 ### 5. Criação das Tabelas
@@ -203,9 +199,6 @@ AZURE_OPENAI_ENDPOINT=your_azure_openai_endpoint
 Execute no pgAdmin4 ou via psql:
 
 ```sql
--- Conectar ao banco
-CREATE DATABASE rag_database;
-
 -- Ativar extensão vector
 CREATE EXTENSION IF NOT EXISTS vector;
 
@@ -285,20 +278,3 @@ Acesse a documentação interativa da API em:
 ```
 http://localhost:8000/docs
 ```
-
-## 🤝 Contribuição
-
-Este projeto representa uma inovação na área de RAG systems. Contribuições são bem-vindas para:
-- Otimização de performance
-- Novos tipos de correlação semântica
-- Melhorias na interface de usuário
-- Expansão para outras LLMs
-
-## 📄 Licença
-
-[Defina aqui a licença do projeto]
-
----
-
-**Desenvolvido com ❤️ para revolucionar a recuperação de informações em sistemas RAG**
-
