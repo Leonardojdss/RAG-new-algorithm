@@ -3,7 +3,7 @@
 ## 📖 Visão Geral
 
 
-![alt text](image.png)
+![alt text](image1.png)
 
 Desenvolvi um novo algoritmo de RAG, o **NEW ALGORITHM RAG**. Nas últimas semanas estive pensando muito em como aperfeiçoar a técnica de RAG.
 
