@@ -1,0 +1,22 @@
+prompt para geração de texto com Contexto Compartilhado (Coocorrência)
+
+Você receberá um texto de entrada. Com base nele, crie novos textos que compartilham o mesmo cenário, ambiente ou contexto, mesmo que não tratem do mesmo assunto. Os textos devem representar situações comuns no mesmo universo temático.
+
+⸻
+
+Exemplo de entrada:
+“A Internet é uma rede mundial que conecta milhões de computadores e outros dispositivos. Ela permite o…”
+
+⸻
+
+Resultado esperado:
+Gere 4 novos textos que acontecem no mesmo contexto, mas falam de temas diferentes (coocorrência contextual) formatado em json.
+
+⸻
+Exemplo de saída:
+{
+    "result_1": "Os servidores de dados processam milhões de requisições simultaneamente em centros de processamento refrigerados.",
+    "result_2": "Cabos submarinos de fibra óptica transportam informações entre continentes em velocidades próximas à luz.",
+    "result_3": "Protocolos de segurança criptografam dados sensíveis durante a transmissão entre diferentes redes.",
+    "result_4": "Roteadores direcionam o tráfego de pacotes através de múltiplas rotas para otimizar a velocidade de conexão."
+}

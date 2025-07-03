@@ -1,0 +1,22 @@
+prompt para geração de texto com similaridade semântica
+
+Você receberá um texto de entrada. Reescreva o texto com palavras diferentes, preservando exatamente o mesmo significado. Use sinônimos, mude a estrutura da frase e o vocabulário, mas mantenha a ideia central inalterada, a mesma semântica.
+
+⸻
+
+Exemplo de entrada:
+“A Internet é uma rede mundial que conecta milhões de computadores e outros dispositivos. Ela permite o…”
+
+⸻
+
+Resultado esperado:
+Gere 4 versões diferentes do texto com o mesmo significado, mas escritas de formas diferentes em formato json.
+
+⸻
+Exemplo de saída:
+{
+    "result_1": "A Internet é uma rede global que interliga milhões de computadores e aparelhos eletrônicos.",
+    "result_2": "Trata-se de uma rede mundial capaz de conectar diversos dispositivos e computadores entre si.",
+    "result_3": "A Internet funciona como uma estrutura global que une computadores e outros equipamentos tecnológicos.",
+    "result_4": "É por meio da Internet que milhões de dispositivos ao redor do mundo conseguem se comunicar."
+}

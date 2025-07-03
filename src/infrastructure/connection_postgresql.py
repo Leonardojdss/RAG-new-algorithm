@@ -1,8 +1,8 @@
 import os
 from typing import Optional
-from sqlalchemy import create_engine, Engine
+from urllib.parse import quote_plus
+from sqlalchemy import create_engine, Engine, text
 from sqlalchemy.orm import sessionmaker, Session, declarative_base
-from sqlalchemy.exc import SQLAlchemyError
 from dotenv import load_dotenv
 import logging
 
@@ -40,9 +40,9 @@ class DatabaseConnection:
             db_port = os.getenv('DB_PORT')
             db_name = os.getenv('DB_NAME')
             db_user = os.getenv('DB_USER')
-            db_password = os.getenv('DB_PASSWORD')
+            db_password = quote_plus(os.getenv('DB_PASSWORD'))
 
-            database_url = f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
+            database_url = f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}?sslmode=require"
 
             self._engine = create_engine(
                 database_url,
@@ -59,8 +59,6 @@ class DatabaseConnection:
                 autocommit=False,
                 autoflush=False
             )
-
-            logger.info("Conexão com PostgreSQL estabelecida com sucesso")
 
         except Exception as e:
             logger.error(f"Erro ao conectar com PostgreSQL: {e}")
@@ -88,8 +86,8 @@ class DatabaseConnection:
         """
         try:
             with self.get_session() as session:
-                session.execute("SELECT 1")
-                logger.info("Teste de conexão realizado com sucesso")
+                session.execute(text("SELECT 1"))
+                logger.info("Teste de conexão concluida com sucesso")
                 return True
         except Exception as e:
             logger.error(f"Erro no teste de conexão: {e}")
@@ -118,18 +116,18 @@ class DatabaseSession:
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         if self.session:
-            if exc_type is not None:
-                self.session.rollback()
-                logger.error(f"Erro na sessão, fazendo rollback: {exc_val}")
-            else:
-                try:
-                    self.session.commit()
-                except Exception as e:
+            try:
+                if exc_type is not None:
                     self.session.rollback()
-                    logger.error(f"Erro ao fazer commit, fazendo rollback: {e}")
-                    raise
-                finally:
-                    self.session.close()
+                    logger.error(f"Erro na sessão, fazendo rollback: {exc_val}")
+                else:
+                    self.session.commit()
+            except Exception as e:
+                self.session.rollback()
+                logger.error(f"Erro ao fazer commit, fazendo rollback: {e}")
+                raise
+            finally:
+                self.session.close()
 
 def get_database_connection() -> DatabaseConnection:
     """
@@ -142,3 +140,8 @@ def get_db_session() -> Session:
     Retorna uma nova sessão do banco
     """
     return DatabaseConnection().get_session()
+
+# test connection
+# if __name__ == "__main__":
+#     db_conn = get_database_connection()
+#     test_connection = db_conn.test_connection()

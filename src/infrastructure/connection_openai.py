@@ -12,12 +12,11 @@ class OpenAIConnection:
         if not endpoint or not api_key:
             raise ValueError("Azure OpenAI endpoint and API key must be set in environment variables.")
         self.client = AzureOpenAI(
-            endpoint=endpoint,
+            azure_endpoint=endpoint,
             api_key=api_key,
-            api_version="2025-01-01",
+            api_version="2025-01-01-preview"
         )
 
     def get_client(self):
         return self.client
     
-#client = OpenAIConnection.get_client

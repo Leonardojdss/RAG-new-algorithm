@@ -1,0 +1,22 @@
+prompt para geração de texto com Relacionamento Semântico (sem similaridade)
+
+Você receberá um texto de entrada. Crie um novo texto que não diga exatamente o mesmo, mas esteja conceitualmente relacionado ao tema central.
+
+⸻
+
+Exemplo de entrada:
+“A Internet é uma rede mundial que conecta milhões de computadores e outros dispositivos. Ela permite o…”
+
+⸻
+
+Resultado esperado:
+Gere 4 novos textos que não repetem o conteúdo, mas estão conceitualmente ligados ao mesmo assunto da entrada, resultado formatado em json.
+
+⸻
+Exemplo de saída:
+{
+    "result_1": "Navegadores web são ferramentas fundamentais para acessar conteúdos disponíveis na Internet.",
+    "result_2": "A expansão da Internet possibilitou o surgimento de novas formas de comunicação, como as redes sociais.",
+    "result_3": "Muitos serviços, como armazenamento em nuvem e e-mails, dependem da infraestrutura da Internet.",
+    "result_4": "Com a popularização da Internet, o trabalho remoto se tornou uma alternativa viável em várias profissões."
+}
