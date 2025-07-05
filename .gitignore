@@ -208,3 +208,7 @@ __marimo__/
 
 
 *embedding_temp.json
+
+
+*quality-gate-config.md
+*sonar-project.properties
